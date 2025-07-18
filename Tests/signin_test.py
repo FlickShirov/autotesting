@@ -3,9 +3,10 @@ from pages.basePage import *
 from locators.locators import *
 
 def test_signIn(driver):
-    page1, page2 = BasePage(driver), SignInPage(driver)
-    page1.open_page(links.magento)
-    page1.click_button(authorization)
-    page2.field_input(input_email, 'fatalmc14@gmail.com')
-    page2.field_input(input_password, '148814881488')
-    page2.click_button(submit)
+    basepage, signpage = BasePage(driver), SignInPage(driver)
+    basepage.open_page(links.magento)
+    basepage.click_button(authorization)
+    signpage.field_input(input_email, 'fatalmc14@gmail.com')
+    signpage.field_input(input_password, '148814881488')
+    signpage.click_button(submit)
+    signpage.message_input(message, 'The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.')
