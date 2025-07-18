@@ -1,5 +1,6 @@
 import pytest
 from selenium import webdriver
+from pages.basePage import *
 
 @pytest.fixture()
 def driver():
@@ -7,5 +8,6 @@ def driver():
     browser.maximize_window()
     yield browser
     browser.close()
+
 
 

@@ -5,15 +5,15 @@ from test_site import driver
 
 class BasePage():
     def __init__(self, driver):
-        self.driver = driver
+        self.browser = driver
         self.wait = WebDriverWait(self.driver, 10)
 
     def open_page(self, url):
-        self.driver.get(url)
+        self.browser.get(url)
 
     def click_button(self, locator):
-        self.driver.find_element(locator).click()
+        self.wait.until(EC.element_to_be_clickable(locator)).click()
 
 class SignInPage(BasePage):
     def field_input(self, locator, input):
-        self.driver.find_element(locator).send_keys(input)
+        self.wait.until(EC.element_to_be_clickable(locator)).send_keys(input)
